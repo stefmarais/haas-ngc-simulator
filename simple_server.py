@@ -24,7 +24,7 @@ while True:
         incoming_message = incoming_message.strip('\n')
         try:
             print(f'Response for code {incoming_message}: {ngc_object[incoming_message]}')
-            connection.send(f'{ngc_object[incoming_message]}'.encode())
+            connection.send(f'>{ngc_object[incoming_message]}'.encode())
         except Exception as e:
             print (f"Error: {e}")
             connection.send("Unknown code\n".encode())
@@ -34,7 +34,7 @@ while True:
         incoming_message = message_string.strip('\n')
         print(f'received string is: {incoming_message} and that is all')
         try:
-            connection.send(f'{ngc_object[incoming_message]}\n\r'.encode())
+            connection.send(f'>{ngc_object[incoming_message]}\n\r'.encode())
         except Exception as e:
             print(f"Error: {e}")
             connection.send("Unknown code, please try again\n".encode())
