@@ -1,13 +1,14 @@
 import time, socket, sys
 from ngc_codes import ngc_object
 
+print("intializing...")
 # Config for Socket
 soc = socket.socket()
 host_name = socket.gethostname()
 ip = socket.gethostbyname(host_name)
 port = 5051
 soc.bind((host_name, port))
-print(host_name, f'({ip})')
+print(f'Haas server initialized at: {ip} on port: {port}')
 soc.listen(1) #Try to locate using socket
 print('Waiting for incoming connections...')
 connection, addr = soc.accept()

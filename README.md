@@ -17,19 +17,27 @@ The simulator can be used to test data monitoring applications. The simple_serve
 
 ## Usage 
 
-Run the simple_server python script then, from a different terminal, run:
+Run the simple_server python script:
+```
+python3 simple_server.py
+>intializing...
+>Haas server initialized at: 192.168.137.226 on port: 5051
+>Waiting for incoming connections...
+```
+
+Then, from a different terminal, run:
 
 ```
-telnet [ip] 5051
+telnet 192.168.137.226 5051
 ```
 
 Once connected, query at will.
 
 ```
-    ?Q100\n
-    >SERIAL NUMBER, 1234567
-    ?Q200
-    >TOOL CHANGES, 35
+?Q100\n
+>SERIAL NUMBER, 1234567
+?Q200
+>TOOL CHANGES, 35
 ```
 
 The simple_client interacts with the simple_server by using Telnetlib and opening a Telnet session to interact with the server.
